@@ -1,0 +1,26 @@
+@var = http://localhost:3000/user
+
+GET {{var}}
+
+###
+GET {{var}}/
+
+###
+POST {{var}}
+Content-Type: application/json
+
+{
+    "name": "tv",
+    "preco": "99.99"
+}
+###
+PUT {{var}}/
+
+Content-Type: application/json
+
+{
+    "name": "teto",
+    "preco": "99.99"
+}
+###
+DELETE {{var}}/
