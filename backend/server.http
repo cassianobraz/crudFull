@@ -7,7 +7,7 @@ POST {{var}}
 Content-Type: application/json
 
 {
-    "nome": "tv",
+    "nome": "teste",
     "preco": 333.33
 }
 
@@ -19,7 +19,7 @@ PUT {{var}}/<:id>
 Content-Type: application/json
 
 {
-    "nome": "teto",
+    "nome": "teste2",
     "preco": 99.99
 }
 ###
