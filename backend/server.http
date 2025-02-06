@@ -3,24 +3,24 @@
 GET {{var}}
 
 ###
-GET {{var}}/
-
-###
 POST {{var}}
 Content-Type: application/json
 
 {
-    "name": "tv",
-    "preco": "99.99"
+    "nome": "tv",
+    "preco": 333.33
 }
-###
-PUT {{var}}/
 
+###
+GET {{var}}/<:id>
+###
+
+PUT {{var}}/<:id>
 Content-Type: application/json
 
 {
-    "name": "teto",
-    "preco": "99.99"
+    "nome": "teto",
+    "preco": 99.99
 }
 ###
-DELETE {{var}}/
+DELETE {{var}}/<:id>
