@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-7xl flex items-center justify-center border-2 mx-auto mt-10">
+  <div class="md:max-w-7xl flex items-center justify-start mx-auto mt-10 px-5">
     <router-view />
   </div>
 </template>

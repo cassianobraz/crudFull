@@ -1,6 +1,1 @@
 @import "tailwindcss";
-
-@theme {
-  --color-default-50: oklch(0.94 0.3 27.88);
-   --font-display: "Oswald", "sans-serif"; 
-}

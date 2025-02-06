@@ -1,4 +1,4 @@
-import { v4 as uuidv4 } from "uuid";
+import { randomUUID } from "crypto";
 
 let items = [];
 
@@ -13,7 +13,7 @@ export const getUserById = (req, res) => {
 };
 
 export const createUser = (req, res) => {
-  const item = { id: uuidv4(), ...req.body };
+  const item = { id: randomUUID(), ...req.body };
   items.push(item);
   res.status(201).json(item);
 };
@@ -33,7 +33,6 @@ export const deleteUser = (req, res) => {
     return res.status(404).json({ error: "Item não encontrado" });
   }
 
-  items.splice(index, 1); 
-  res.status(200).json({ message: "Usuário deletado com sucesso!" }); 
+  items.splice(index, 1);
+  res.status(200).json({ message: "Usuário deletado com sucesso!" });
 };
-

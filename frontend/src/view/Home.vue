@@ -1,9 +1,9 @@
 <template>
-  <div class="flex flex-col items-center gap-4 justify-center w-full mt-5 mb-5">
+  <div class="flex flex-col items-start gap-4 justify-start w-full mt-5 md:items-center">
     <form @submit.prevent="handleSubmit">
-      <div class="space-x-4">
+      <div class="flex flex-col gap-1">
         <input type="text" v-model="name" placeholder="produto" class="text-center border" required />
-        <input type="number" v-model="number" placeholder="valor" class="text-center border" required
+        <input type="text" v-model="number" placeholder="valor" class="text-center border" required
           @keydown="validateNumber" />
         <button type="submit" :class="isEditing ? 'bg-blue-500' : 'bg-green-500'" class="text-white px-4 py-0.5">
           {{ isEditing ? "Atualizar" : "Enviar" }}
@@ -11,10 +11,10 @@
       </div>
       <div v-if="message" class="mt-4 justify-center flex">{{ message }}</div>
     </form>
-    <ul class="mt-4 flex flex-wrap justify-center">
-      <li v-for="user in users" :key="user.id" class="flex justify-between items-center border p-4 gap-4 m-2">
+    <ul class="mt-4 flex flex-wrap justify-start">
+      <li v-for="user in users" :key="user.id" class="flex justify-between items-center border p-4 gap-4">
         <span>{{ user.nome }} - R$ {{ user.preco }}</span>
-        <div class="space-x-2">
+        <div class="gap-4">
           <button @click="editUser(user)" class="bg-blue-500 text-white px-2 py-1">
             Editar
           </button>
@@ -41,8 +41,17 @@ const editingId = ref(null);
 const validateNumber = (event) => {
   const allowedKeys = [ 'Backspace', 'Tab', 'ArrowLeft', 'ArrowRight', 'Delete' ];
 
-  if (!allowedKeys.includes(event.key) && !/^\d$/.test(event.key)) {
-    event.preventDefault();
+  if (!allowedKeys.includes(event.key)) {
+    const inputValue = event.target.value;
+    const isDot = event.key === '.';
+
+    if (!/^\d$/.test(event.key) && !isDot) {
+      event.preventDefault();
+    }
+
+    if (isDot && inputValue.includes('.')) {
+      event.preventDefault();
+    }
   }
 };
 
